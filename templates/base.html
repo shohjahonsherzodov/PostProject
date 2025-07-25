@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mening Blogim{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <a class="logo" href="/"><i class="fas fa-blog"></i> Blog</a>
+        <ul>
+            <li><a href="/"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> Biz haqimizda</a></li>
+            <li><a href="/accounts/login/"><i class="fas fa-user"></i> Kirish</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        <p><i class="far fa-copyright"></i> 2025 Mening Blogim</p>
+    </div>
+</body>
+</html>
