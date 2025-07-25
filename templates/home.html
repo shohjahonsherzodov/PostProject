@@ -4,9 +4,6 @@
   <h2>Barcha Postlar</h2><br><br>
   {% for post in object_list %}
     <div class="post">
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image" width="900px">
-    {% endif %}
       <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
       <p>{{ post.content }}</p>
       <small>Muallif: {{ post.author }} | Sana: {{ post.created_at|date:"d-m-Y" }}</small><br><br><br><br>
