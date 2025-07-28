@@ -1,5 +1,6 @@
 /* static/css/base.css */
 
+/* Umumiy stil */
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +9,9 @@ body {
     color: #f5f5f5;
     line-height: 1.6;
 }
-
+img{
+    width: 900px; 
+}
 a {
     color: #00bcd4;
     text-decoration: none;
@@ -27,28 +30,47 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    flex-wrap: wrap;
 }
 
 .navbar a.logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #00bcd4;
+    text-decoration: none;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.2rem;
     margin: 0;
     padding: 0;
 }
 
 .navbar li {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar li a {
+    display: flex;
+    align-items: center;
+    color: #f5f5f5;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #333;
+    color: #00bcd4;
 }
 
 .navbar i {
-    margin-right: 5px;
+    margin-right: 6px;
+    font-size: 1rem;
 }
 
 /* Container */
@@ -124,19 +146,7 @@ input:focus, textarea:focus {
     color: #888;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .container {
-        margin: 1rem;
-        padding: 1rem;
-    }
-}
-
+/* About sahifa */
 .about-container {
     max-width: 800px;
     margin: 40px auto;
@@ -156,4 +166,29 @@ input:focus, textarea:focus {
 .about-container p {
     font-size: 18px;
     line-height: 1.6;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .navbar li a {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
 }

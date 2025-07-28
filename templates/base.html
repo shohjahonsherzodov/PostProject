@@ -5,24 +5,27 @@
     <meta charset="UTF-8">
     <title>{% block title %}Mening Blogim{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Font Awesome ikonlar uchun -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <a class="logo" href="/"><i class="fas fa-blog"></i> Blog</a>
+    <nav class="navbar">
         <ul>
-            <li><a href="/"><i class="fas fa-home"></i> Bosh sahifa</a></li>
+            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Bosh sahifa</a></li>
             <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> Biz haqimizda</a></li>
-            <li><a href="/accounts/login/"><i class="fas fa-user"></i> Kirish</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'post_new' %}"><i class="fas fa-plus"></i> Post qo‘shish</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> {{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Chiqish</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Kirish</a></li>
+                <li><a href="{% url 'signup' %}"><i class="fas fa-user-plus"></i> Ro‘yxatdan o‘tish</a></li>
+            {% endif %}
         </ul>
-    </div>
+    </nav>
 
     <div class="container">
         {% block content %}{% endblock %}
-    </div>
-
-    <div class="footer">
-        <p><i class="far fa-copyright"></i> 2025 Mening Blogim</p>
     </div>
 </body>
 </html>

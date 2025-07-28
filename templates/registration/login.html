@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Tizimga kirish</h2>
+  <h2>Kirish</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Kirish</button>
   </form>
 {% endblock %}
-  
